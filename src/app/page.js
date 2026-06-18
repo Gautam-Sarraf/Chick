@@ -4,7 +4,11 @@ import ReviewsCarousel from "../components/ReviewsCarousel";
 
 export default function Home() {
   return (
-    <div className="app-container">
+    <div className="app-container" style={{ position: "relative", overflow: "hidden" }}>
+      {/* Background Ambient Glows */}
+      <div className="ambient-glow pink" aria-hidden="true"></div>
+      <div className="ambient-glow terracotta" aria-hidden="true"></div>
+      
       {/* Navigation Bar */}
       <header className="navbar">
         <a href="#" className="nav-logo" id="site-logo">
@@ -46,6 +50,12 @@ export default function Home() {
               Discover a solid, comforting menu without too many surprises—exactly what you want
               when you're in the mood for something dependable.
             </p>
+            <div className="hero-swirl-container" aria-hidden="true">
+              <svg viewBox="0 0 280 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 50 C 60 10, 120 90, 100 110 C 80 130, 30 70, 70 40 C 110 10, 200 50, 270 30" stroke="var(--color-pink)" strokeWidth="2" strokeDasharray="5 5" strokeLinecap="round" opacity="0.6"/>
+                <path d="M270 30 L260 25 M270 30 L263 38" stroke="var(--color-pink)" strokeWidth="2" strokeLinecap="round" opacity="0.6"/>
+              </svg>
+            </div>
             <div className="hero-badges">
               <div className="badge-item" id="hero-badge-rating">
                 <span className="badge-val">4.4 ★</span>

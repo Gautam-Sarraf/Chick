@@ -175,6 +175,7 @@ h1, h2, h3, h4 {
 .column-left {
   padding: 5rem 3rem;
   border-right: none;
+  position: relative;
 }
 
 @media (min-width: 1024px) {
@@ -255,13 +256,24 @@ h1, h2, h3, h4 {
   aspect-ratio: 16 / 10;
   position: relative;
   overflow: hidden;
-  border: var(--border-light);
-  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 40px 16px 40px 16px; /* Elegant asymmetrical curves to break the boxy grid */
+  box-shadow: 
+    0 30px 60px -15px rgba(0, 0, 0, 0.6),
+    0 0 50px -10px rgba(255, 174, 193, 0.12);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .hero-image-frame img {
   object-fit: cover;
   transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-image-frame:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 40px 80px -20px rgba(0, 0, 0, 0.7),
+    0 0 60px -5px rgba(255, 174, 193, 0.18);
 }
 
 .hero-image-frame:hover img {
@@ -406,20 +418,29 @@ h1, h2, h3, h4 {
   border-bottom: var(--border-light);
   cursor: pointer;
   transition: var(--transition-smooth);
+  margin-bottom: 0.5rem; /* Gap between rows to break the sharp boxy structure */
 }
 
 .menu-category-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2.2rem 1rem;
-  transition: var(--transition-fast);
+  padding: 2.2rem 1.5rem;
+  transition: var(--transition-smooth);
+  border-radius: 12px;
 }
 
 .menu-category-row:hover .menu-category-header {
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
   background-color: var(--color-dark-gray);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.menu-category-row.active .menu-category-header {
+  background-color: var(--color-dark-gray);
+  border-radius: 12px 12px 0 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
 }
 
 .category-left {
@@ -493,6 +514,8 @@ h1, h2, h3, h4 {
   overflow: hidden;
   transition: var(--transition-smooth);
   background-color: var(--color-dark-gray);
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
 .menu-category-row.active .menu-category-content {
@@ -956,13 +979,20 @@ h1, h2, h3, h4 {
   aspect-ratio: 16 / 11;
   position: relative;
   overflow: hidden;
-  border: var(--border-light);
-  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 32px 12px 32px 12px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .gallery-image-frame img {
   object-fit: cover;
   transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gallery-image-frame:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
 }
 
 .gallery-image-frame:hover img {
@@ -1087,7 +1117,7 @@ h1, h2, h3, h4 {
     padding: 1.5rem 2rem;
   }
   .nav-links {
-    display: none; /* simple for desktop-first layout styling, we can implement toggle logic if needed, or inline list in mobile */
+    display: none;
   }
   .nav-meta {
     display: none;
@@ -1096,3 +1126,61 @@ h1, h2, h3, h4 {
     display: block;
   }
 }
+
+/* Cream Section Image Frame override for brick theme matching */
+.section-cream .hero-image-frame {
+  border-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 
+    0 30px 60px -15px rgba(142, 62, 47, 0.15),
+    0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.section-cream .hero-image-frame:hover {
+  box-shadow: 
+    0 40px 80px -20px rgba(142, 62, 47, 0.22),
+    0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Background Ambient Glows to break flat SaaS layout feeling */
+.ambient-glow {
+  position: absolute;
+  width: 40rem;
+  height: 40rem;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+  filter: blur(150px);
+  opacity: 0.08;
+  mix-blend-mode: screen;
+}
+
+.ambient-glow.pink {
+  background-color: var(--color-pink);
+  top: 5%;
+  right: -5%;
+}
+
+.ambient-glow.terracotta {
+  background-color: var(--color-terracotta);
+  top: 35%;
+  left: -15%;
+}
+
+/* Custom looping SVG swirl layout element matching Fjordsmaken */
+.hero-swirl-container {
+  position: absolute;
+  width: 280px;
+  height: 120px;
+  bottom: 0rem;
+  right: -6rem;
+  pointer-events: none;
+  z-index: 2;
+  display: none;
+}
+
+@media (min-width: 1200px) {
+  .hero-swirl-container {
+    display: block;
+  }
+}
+
