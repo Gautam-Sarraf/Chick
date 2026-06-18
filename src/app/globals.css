@@ -587,21 +587,38 @@ h1, h2, h3, h4 {
   }
 }
 
-.reviews-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
+.reviews-carousel {
+  position: relative;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.reviews-carousel-viewport {
+  overflow: hidden;
+  width: 100%;
+}
+
+.reviews-carousel-track {
+  display: flex;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  width: 100%;
+}
+
+.reviews-carousel-slide {
+  flex: 0 0 100%;
+  padding: 0 1rem;
+  transition: opacity 0.6s ease;
 }
 
 @media (min-width: 768px) {
-  .reviews-grid {
-    grid-template-columns: 1fr 1fr;
+  .reviews-carousel-slide {
+    flex: 0 0 50%;
   }
 }
 
 @media (min-width: 1024px) {
-  .reviews-grid {
-    grid-template-columns: 1fr 1fr 1fr;
+  .reviews-carousel-slide {
+    flex: 0 0 33.3333%;
   }
 }
 
@@ -615,6 +632,7 @@ h1, h2, h3, h4 {
   justify-content: space-between;
   transition: var(--transition-smooth);
   position: relative;
+  height: 100%;
 }
 
 .review-card::before {
@@ -660,6 +678,64 @@ h1, h2, h3, h4 {
   color: var(--color-pink);
   font-size: 0.85rem;
   letter-spacing: 2px;
+}
+
+.carousel-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  margin-top: 3.5rem;
+}
+
+.carousel-btn {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  border: var(--border-light);
+  background: transparent;
+  color: var(--color-text-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.carousel-btn:hover {
+  background-color: var(--color-text-light);
+  color: var(--color-dark);
+  border-color: var(--color-text-light);
+}
+
+.carousel-btn svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+}
+
+.carousel-dots {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: none;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  padding: 0;
+}
+
+.carousel-dot.active {
+  background-color: var(--color-pink);
+  transform: scale(1.35);
 }
 
 /* Location, Hours, Contact details (Sandstone Panel style) */

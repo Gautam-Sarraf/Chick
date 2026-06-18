@@ -1,5 +1,6 @@
 import Image from "next/image";
 import MenuSection from "../components/MenuSection";
+import ReviewsCarousel from "../components/ReviewsCarousel";
 
 export default function Home() {
   return (
@@ -163,37 +164,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="reviews-grid">
-            <div className="review-card" id="review-card-1">
-              <p className="review-text">
-                "Nice spot in West Bromwich with a simple but warm ambience. The service is friendly and laid-back. The menu offers solid, comforting dishes without too many surprises — exactly what you want when you’re in the mood for something dependable."
-              </p>
-              <div className="review-meta">
-                <span className="review-author">Gautama</span>
-                <span className="review-rating">★★★★★</span>
-              </div>
-            </div>
-
-            <div className="review-card" id="review-card-2">
-              <p className="review-text">
-                "First of all, the entrance is beautiful – the Hollywood-style entrance really gives the restaurant a unique and welcoming vibe. The chicken breast was cooked perfectly – soft, juicy, and full of flavour."
-              </p>
-              <div className="review-meta">
-                <span className="review-author">Ehsaan Ahmad</span>
-                <span className="review-rating">★★★★★</span>
-              </div>
-            </div>
-
-            <div className="review-card" id="review-card-3">
-              <p className="review-text">
-                "I recently visited Chickaros in West Bromwich and had such a great experience. From the moment we walked in, we were impressed by the warm and welcoming service. The staff were friendly, attentive, and made us feel right at home."
-              </p>
-              <div className="review-meta">
-                <span className="review-author">Mevan Senanayake</span>
-                <span className="review-rating">★★★★★</span>
-              </div>
-            </div>
-          </div>
+          <ReviewsCarousel />
         </section>
 
         {/* Location & Contact Section */}
