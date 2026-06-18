@@ -252,15 +252,15 @@ export default function Home() {
           </div>
 
           <div className="map-panel">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2427.7946979203874!2d-2.0132474233215286!3d52.51913167199738!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4870992383c34eb3%3A0xe54e60241cb02c2e!2sChickaros%20West%20Bromwich!5e0!3m2!1sen!2suk!4v1718712345678!5m2!1sen!2suk"
-              className="map-iframe"
-              allowFullScreen=""
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Chickaros West Bromwich Google Map Location"
-              id="location-map"
-            ></iframe>
+             <iframe
+               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2427.768134763321!2d-1.9984579!3d52.5197796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487098035b17423d%3A0xd370f90d5a1c418e!2sChickaros%20West%20Bromwich!5e0!3m2!1sen!2suk!4v1718712345678!5m2!1sen!2suk"
+               className="map-iframe"
+               allowFullScreen=""
+               loading="lazy"
+               referrerPolicy="no-referrer-when-downgrade"
+               title="Chickaros West Bromwich Google Map Location"
+               id="location-map"
+             ></iframe>
           </div>
         </section>
       </main>
