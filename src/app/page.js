@@ -115,7 +115,7 @@ export default function Home() {
               <span className="service-badge" id="service-takeaway">Takeaway</span>
               <span className="service-badge" id="service-delivery">Delivery</span>
             </div>
-             <div className="hero-image-frame" style={{ marginTop: "3rem", width: "100%", aspectRatio: "4 / 3" }} id="overview-dish-image">
+             <div className="hero-image-frame overview-image" id="overview-dish-image">
                <Image
                  src="/images/signature_dish.png"
                  alt="A gourmet selection of chicken wings and grilled lamb chops prepared at Chickaros"

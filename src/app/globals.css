@@ -1,25 +1,25 @@
 /* Custom CSS for Chickaros West Bromwich website - Editorial & Premium design */
 
 :root {
-  --color-dark: #0A0A0A;
+  --color-dark: #0a0a0a;
   --color-dark-gray: #161616;
-  --color-terracotta: #9E3A2B;
-  --color-terracotta-dark: #7D2D21;
-  --color-pink: #FFAEC1;
-  --color-pink-muted: #F3A3B4;
-  --color-cream: #F8F5F0;
-  --color-cream-dark: #EEE9DE;
-  --color-text-light: #F7F7F7;
-  --color-text-dark: #1E1E1E;
-  --color-text-muted-light: #A5A5A5;
-  --color-text-muted-dark: #6E6E6E;
-  
+  --color-terracotta: #9e3a2b;
+  --color-terracotta-dark: #7d2d21;
+  --color-pink: #ffaec1;
+  --color-pink-muted: #f3a3b4;
+  --color-cream: #f8f5f0;
+  --color-cream-dark: #eee9de;
+  --color-text-light: #f7f7f7;
+  --color-text-dark: #1e1e1e;
+  --color-text-muted-light: #a5a5a5;
+  --color-text-muted-dark: #6e6e6e;
+
   --font-serif: var(--font-playfair), Georgia, serif;
   --font-sans: var(--font-jakarta), system-ui, sans-serif;
-  
+
   --transition-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-fast: all 0.25s ease;
-  
+
   --border-light: 1px solid rgba(255, 255, 255, 0.08);
   --border-dark: 1px solid rgba(14, 14, 14, 0.08);
 }
@@ -44,7 +44,10 @@ body {
 }
 
 /* Typography */
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   font-family: var(--font-serif);
   font-weight: 600;
   letter-spacing: -0.02em;
@@ -85,12 +88,13 @@ h1, h2, h3, h4 {
   position: relative;
 }
 
-.nav-link:hover, .nav-link.active {
+.nav-link:hover,
+.nav-link.active {
   color: var(--color-text-light);
 }
 
 .nav-link::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -4px;
   left: 0;
@@ -211,7 +215,7 @@ h1, h2, h3, h4 {
 }
 
 .hero-tagline::before {
-  content: '';
+  content: "";
   display: inline-block;
   width: 2rem;
   height: 1px;
@@ -258,7 +262,7 @@ h1, h2, h3, h4 {
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 40px 16px 40px 16px; /* Elegant asymmetrical curves to break the boxy grid */
-  box-shadow: 
+  box-shadow:
     0 30px 60px -15px rgba(0, 0, 0, 0.6),
     0 0 50px -10px rgba(255, 174, 193, 0.12);
   transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
@@ -271,7 +275,7 @@ h1, h2, h3, h4 {
 
 .hero-image-frame:hover {
   transform: translateY(-4px);
-  box-shadow: 
+  box-shadow:
     0 40px 80px -20px rgba(0, 0, 0, 0.7),
     0 0 60px -5px rgba(255, 174, 193, 0.18);
 }
@@ -1086,7 +1090,7 @@ h1, h2, h3, h4 {
 }
 
 .service-badge::before {
-  content: '';
+  content: "";
   display: inline-block;
   width: 6px;
   height: 6px;
@@ -1130,13 +1134,13 @@ h1, h2, h3, h4 {
 /* Cream Section Image Frame override for brick theme matching */
 .section-cream .hero-image-frame {
   border-color: rgba(0, 0, 0, 0.08);
-  box-shadow: 
+  box-shadow:
     0 30px 60px -15px rgba(142, 62, 47, 0.15),
     0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
 .section-cream .hero-image-frame:hover {
-  box-shadow: 
+  box-shadow:
     0 40px 80px -20px rgba(142, 62, 47, 0.22),
     0 5px 20px rgba(0, 0, 0, 0.08);
 }
@@ -1184,3 +1188,89 @@ h1, h2, h3, h4 {
   }
 }
 
+/* ==========================================
+   Responsive Design & Layout Swaps
+   ========================================== */
+
+/* Mobile & Tablet Optimizations (< 1024px) */
+@media (max-width: 1023px) {
+  .column-left {
+    padding: 3rem 1.5rem 1.5rem 1.5rem;
+  }
+  
+  .column-right {
+    padding: 1.5rem 1.5rem 3rem 1.5rem;
+  }
+  
+  .hero-intro-text {
+    max-width: 100%;
+    margin-bottom: 2.5rem;
+    font-size: 1.1rem;
+  }
+  
+  .hero-title {
+    font-size: clamp(2.5rem, 8vw, 4.2rem);
+    margin-bottom: 2rem;
+  }
+  
+  .hero-badges {
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+    flex-wrap: wrap;
+  }
+  
+  .vibe-title {
+    font-size: clamp(1.8rem, 5vw, 2.6rem);
+    margin-bottom: 1.5rem;
+  }
+  
+  .vibe-desc {
+    max-width: 100%;
+    margin-bottom: 1.5rem;
+  }
+  
+  .quote-block {
+    margin: 2rem 0;
+    padding-left: 1.5rem;
+    font-size: 1.2rem;
+  }
+  
+  .hero-image-frame {
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* Reset service badges margin and center them on mobile */
+  .services-badges {
+    margin-top: 0.5rem;
+    justify-content: center;
+  }
+}
+
+/* Overview Section - Image/Text Swapping & Image Sizing */
+.overview-image {
+  margin-top: 2rem;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+}
+
+@media (min-width: 1024px) {
+  .overview-image {
+    margin-top: 3rem;
+  }
+  
+  #overview {
+    grid-template-columns: 0.8fr 1.2fr;
+  }
+  
+  #overview .column-left {
+    grid-column: 2;
+    border-right: none;
+    border-left: var(--border-dark);
+  }
+  
+  #overview .column-right {
+    grid-column: 1;
+  }
+}
