@@ -1,24 +1,59 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import MenuSection from "../components/MenuSection";
 import ReviewsCarousel from "../components/ReviewsCarousel";
 
 export default function Home() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
+
   return (
     <div className="app-container" style={{ position: "relative", overflow: "hidden" }}>
       {/* Background Ambient Glows */}
       <div className="ambient-glow pink" aria-hidden="true"></div>
       <div className="ambient-glow terracotta" aria-hidden="true"></div>
       
+      {/* Navigation Scrim for Mobile Drawer */}
+      {menuOpen && (
+        <div 
+          className="nav-scrim" 
+          onClick={() => setMenuOpen(false)} 
+          aria-hidden="true"
+        />
+      )}
+
       {/* Navigation Bar */}
-      <header className="navbar">
-        <a href="#" className="nav-logo" id="site-logo">
+      <header className={`navbar ${menuOpen ? "menu-open" : ""}`}>
+        <a href="#" className="nav-logo" id="site-logo" onClick={() => setMenuOpen(false)}>
           CHICKAROS<span>★★★</span>
         </a>
         <nav className="nav-links" aria-label="Main Navigation">
-          <a href="#overview" className="nav-link" id="nav-item-overview">Overview</a>
-          <a href="#menu" className="nav-link" id="nav-item-menu">Menu</a>
-          <a href="#reviews" className="nav-link" id="nav-item-reviews">Reviews</a>
-          <a href="#contact" className="nav-link" id="nav-item-contact">Location</a>
+          <a href="#overview" className="nav-link" id="nav-item-overview" onClick={() => setMenuOpen(false)}>Overview</a>
+          <a href="#menu" className="nav-link" id="nav-item-menu" onClick={() => setMenuOpen(false)}>Menu</a>
+          <a href="#reviews" className="nav-link" id="nav-item-reviews" onClick={() => setMenuOpen(false)}>Reviews</a>
+          <a href="#contact" className="nav-link" id="nav-item-contact" onClick={() => setMenuOpen(false)}>Location</a>
+          
+          {/* Mobile Only Meta Links inside Nav */}
+          <div className="mobile-menu-meta">
+            <a href="tel:+441215535353" className="nav-phone" onClick={() => setMenuOpen(false)}>
+              +44 121 553 5353
+            </a>
+            <a href="#contact" className="nav-cta" onClick={() => setMenuOpen(false)}>
+              Order Online
+            </a>
+          </div>
         </nav>
         <div className="nav-meta">
           <a href="tel:+441215535353" className="nav-phone" id="nav-phone-link">
@@ -28,7 +63,12 @@ export default function Home() {
             Order Online
           </a>
         </div>
-        <button className="mobile-nav-toggle" aria-label="Toggle navigation menu" id="mobile-menu-toggle">
+        <button 
+          className="mobile-nav-toggle" 
+          aria-label="Toggle navigation menu" 
+          id="mobile-menu-toggle"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
           <span></span>
           <span></span>
           <span></span>

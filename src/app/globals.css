@@ -118,6 +118,8 @@ h4 {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  position: relative;
+  z-index: 100;
 }
 
 .nav-logo span {
@@ -1105,6 +1107,8 @@ h4 {
   border: none;
   cursor: pointer;
   padding: 0.5rem;
+  position: relative;
+  z-index: 100;
 }
 
 .mobile-nav-toggle span {
@@ -1120,15 +1124,120 @@ h4 {
   .navbar {
     padding: 1.5rem 2rem;
   }
+  
+  /* Mobile navigation drawer sliding from left to right */
   .nav-links {
-    display: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 75vw;
+    max-width: 320px;
+    height: 100vh;
+    background-color: var(--color-dark);
+    border-right: var(--border-light);
+    padding: 7rem 2rem 2rem 2.5rem;
+    gap: 1.75rem;
+    z-index: 90;
+    transform: translateX(-100%);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 15px 0 40px rgba(0, 0, 0, 0.6);
   }
+  
+  /* When open, slide active */
+  .navbar.menu-open .nav-links {
+    transform: translateX(0);
+  }
+  
+  .navbar.menu-open .nav-links .nav-link {
+    font-size: 1.35rem;
+    font-family: var(--font-serif);
+    text-transform: capitalize;
+    letter-spacing: 0.05em;
+    color: var(--color-text-light);
+  }
+  
   .nav-meta {
     display: none;
   }
+  
   .mobile-nav-toggle {
     display: block;
   }
+}
+
+/* Transforming hamburger to X when active */
+.menu-open .mobile-nav-toggle span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.menu-open .mobile-nav-toggle span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-open .mobile-nav-toggle span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Mobile Menu Meta inside Nav links */
+.mobile-menu-meta {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+    width: 100%;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 1.5rem;
+  }
+  .mobile-menu-meta .nav-phone {
+    font-size: 1.15rem;
+    color: var(--color-pink);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .mobile-menu-meta .nav-cta {
+    width: 100%;
+    max-width: 250px;
+    text-align: center;
+    background-color: var(--color-text-light);
+    color: var(--color-dark);
+    text-decoration: none;
+    padding: 0.8rem 1.8rem;
+    border-radius: 2rem;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: var(--transition-fast);
+  }
+}
+
+/* Scrim backdrop for navigation drawer */
+.nav-scrim {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 85;
+  animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 /* Cream Section Image Frame override for brick theme matching */
