@@ -1266,11 +1266,153 @@ h4 {
   
   #overview .column-left {
     grid-column: 2;
+    grid-row: 1;
     border-right: none;
     border-left: var(--border-dark);
   }
   
   #overview .column-right {
     grid-column: 1;
+    grid-row: 1;
+    justify-content: flex-start !important;
+  }
+}
+
+
+@media (max-width: 500px) {
+  /* Navigation */
+  .navbar {
+    padding: 1rem 1.25rem;
+  }
+  .nav-logo {
+    font-size: 1.5rem;
+  }
+  
+  /* Layout Grid Paddings */
+  .column-left {
+    padding: 2.5rem 1.25rem 1.25rem 1.25rem;
+  }
+  .column-right {
+    padding: 1.25rem 1.25rem 2.5rem 1.25rem;
+  }
+  
+  /* Headings & Text */
+  .hero-title {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+  .hero-intro-text {
+    font-size: 1rem;
+    margin-bottom: 2.5rem;
+  }
+  .vibe-title {
+    font-size: 1.6rem;
+  }
+  .quote-block {
+    font-size: 1.1rem;
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+  }
+  
+  /* Editorial Section Headers Stacking and Sizing */
+  .section-header-editorial {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding-bottom: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+  .editorial-section-title {
+    font-size: 1.8rem;
+  }
+  .editorial-meta-text {
+    text-align: left;
+    max-width: 100%;
+    font-size: 0.85rem;
+  }
+
+  /* Overview Image spacing */
+  .overview-image {
+    margin-top: 1.5rem;
+  }
+  
+  /* Menu Category Headers */
+  .menu-section {
+    padding: 4rem 1.25rem;
+  }
+  .menu-category-header {
+    padding: 1.25rem 0.75rem;
+    border-radius: 8px;
+  }
+  .category-left {
+    gap: 1rem;
+  }
+  .category-number {
+    font-size: 0.8rem;
+  }
+  .category-name {
+    font-size: 1.15rem;
+  }
+  .category-arrow-btn {
+    width: 2.2rem;
+    height: 2.2rem;
+  }
+  .category-arrow-btn svg {
+    width: 0.9rem;
+    height: 0.9rem;
+  }
+  .menu-items-grid {
+    padding: 1.5rem 0.5rem 2rem 0.5rem;
+    gap: 1.5rem;
+  }
+  .menu-item-title {
+    font-size: 1.1rem;
+  }
+  .menu-item-price {
+    font-size: 1rem;
+  }
+  .menu-item-desc {
+    font-size: 0.85rem;
+  }
+  
+  /* Reviews Section & Card Proportions */
+  .reviews-section {
+    padding: 4rem 1.25rem;
+  }
+  .review-card {
+    padding: 1.5rem 1.25rem;
+  }
+  .review-text {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+  }
+  .review-author {
+    font-size: 0.85rem;
+  }
+  .review-rating {
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+  }
+  
+  /* Location & Hours */
+  .contact-info-panel {
+    padding: 4rem 1.25rem;
+  }
+  .contact-title {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+  .hours-grid {
+    gap: 0.75rem 1rem;
+    font-size: 0.85rem;
+  }
+  
+  /* Secondary Gallery */
+  .gallery-card {
+    padding: 3rem 1.25rem;
+  }
+  .gallery-title {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
   }
 }
